@@ -17,5 +17,5 @@ target_link_libraries( aeon-graphics
         aeon-platform-vulkan
 )
 
-#target_precompile_headers(  aeon-graphics REUSE_FROM  aeon-base                     )
+target_precompile_headers(  aeon-graphics REUSE_FROM  aeon-base                     )
 target_include_directories( aeon-graphics PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} )

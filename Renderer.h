@@ -1,8 +1,5 @@
 #pragma once
 
-#include <Base/Base.h>
-#include <Base/Log.h>
-
 #define VK_USE_PLATFORM_WIN32_KHR
 #include <Vendor/glad/include/glad/gl.h>
 #include <Vendor/glad/include/glad/vulkan.h>

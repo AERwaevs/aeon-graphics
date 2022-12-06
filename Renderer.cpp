@@ -1,5 +1,3 @@
-#include <Base/Base.h>
-
 #include <Graphics/Renderer.h>
 
 #include <Platform/Vulkan/VulkanRenderer.h>

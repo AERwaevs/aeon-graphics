@@ -1,7 +1,5 @@
 #pragma once
 
-#include <Base/Base.h>
-
 #include <Graphics/Renderer.h>
 
 class Event;

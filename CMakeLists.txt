@@ -1,4 +1,4 @@
-add_library( aeon-graphics STATIC Renderer.cpp )
+add_library( aeon-graphics STATIC Renderer.cpp Viewport.cpp )
 add_dependencies( aeon-graphics
     aeon-base
     aeon-platform-vulkan

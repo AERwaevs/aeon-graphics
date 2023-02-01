@@ -33,12 +33,12 @@ namespace AEON::Graphics
     {
         if( api == Vulkan && VulkanSupported() )
         {
-            m_graphics_api = Vulkan;
+            s_graphics_api = Vulkan;
             return VulkanRenderer::create();
         }
         else if( api == OpenGL && OpenGLSupported() )
         {
-            m_graphics_api = OpenGL;
+            s_graphics_api = OpenGL;
             return OpenGLRenderer::create();
         }
         else return Shared<Renderer>( new Renderer() );

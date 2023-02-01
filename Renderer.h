@@ -13,14 +13,15 @@ class AEON_DLL Renderer : public Inherit< Object, Renderer >
             OpenGL  = BIT(1)
         } GraphicsAPI;
 
+                                Renderer(){ s_instance = this; };
         static Shared<Renderer> create( GraphicsAPI api = GraphicsAPI::None );
         static Shared<Renderer> instance() { return s_instance; }
-
+        static GraphicsAPI      api()      { return s_graphics_api; }
     protected:
         virtual ~Renderer() = default;
     private:
-        static inline   Shared<Renderer> s_instance;
-        static inline   GraphicsAPI      m_graphics_api = None;
+        static inline   Shared<Renderer>        s_instance;
+        static inline   GraphicsAPI             s_graphics_api = None;
 };
 
 }

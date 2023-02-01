@@ -29,6 +29,12 @@ namespace AEON::Graphics
         return version >= AEON_VK_VERSION;
     }
 
+    Shared<Renderer> Renderer::GetOrCreate()
+    {
+        if( !s_instance ) s_instance = Renderer::create( GraphicsAPI::Vulkan );
+        return s_instance;
+    }
+
     Shared<Renderer> Renderer::create( GraphicsAPI api )
     {
         if( api == Vulkan && VulkanSupported() )

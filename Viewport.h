@@ -5,21 +5,26 @@
 namespace AEON::Graphics
 {
 
+class Window;
+
 class Viewport : public Inherit< Object, Viewport >
 {
 public:
-    Viewport( Renderer* renderer )
-    :   m_renderer{ renderer }
+    static Shared<Viewport> create();
+    Viewport()
+    :   m_renderer{ Renderer::instance() }
     {};
-
+public:
     virtual bool AdvanceFrame();
     virtual bool AcquireFrame();
     virtual void Update();
     virtual void Present();
-
-    ~Viewport();
-private:
+protected:
+    virtual                 ~Viewport() = default;
+protected:
+    friend class Window;
     Shared<Renderer>    m_renderer;
+    
 };
 using Viewports = List<Shared<Viewport>>;
     

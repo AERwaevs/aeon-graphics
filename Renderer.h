@@ -3,7 +3,7 @@
 namespace AEON::Graphics
 {
 
-class AEON_DLL Renderer : public Inherit< Object, Renderer >
+class AEON_DLL Renderer : public Object
 {
     public:
         typedef enum : uint8_t

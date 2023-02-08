@@ -7,12 +7,12 @@ namespace AEON::Graphics
 
 class Window;
 
-class Viewport : public Inherit< Object, Viewport >
+class Viewport : public Object
 {
 public:
     static Shared<Viewport> create();
     Viewport()
-    :   m_renderer{ Renderer::instance() }
+    :   m_renderer{ Renderer::GetOrCreate() }
     {};
 public:
     virtual bool AdvanceFrame();

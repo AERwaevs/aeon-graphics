@@ -29,24 +29,16 @@ namespace AEON::Graphics
         return version >= AEON_VK_VERSION;
     }
 
-    Shared<Renderer> Renderer::GetOrCreate()
-    {
-        if( !s_instance ) s_instance = Renderer::create( GraphicsAPI::Vulkan );
-        return s_instance;
-    }
-
     Shared<Renderer> Renderer::create( GraphicsAPI api )
     {
         if( api == Vulkan && VulkanSupported() )
         {
-            s_graphics_api = Vulkan;
-            return VulkanRenderer::create();
+            return Shared<VulkanRenderer>( new VulkanRenderer() );
         }
         else if( api == OpenGL && OpenGLSupported() )
         {
-            s_graphics_api = OpenGL;
-            return OpenGLRenderer::create();
+            return Shared<OpenGLRenderer>( new OpenGLRenderer() );
         }
-        else return Shared<Renderer>( new Renderer() );
+        else return Shared<Renderer>();
     }
 }

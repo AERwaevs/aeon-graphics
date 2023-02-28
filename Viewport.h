@@ -10,19 +10,19 @@ class Window;
 class Viewport : public Object
 {
 public:
-    static Shared<Viewport> create();
-    Viewport()
-    :   m_renderer{ Renderer::GetOrCreate() }
-    {};
-public:
     virtual bool AdvanceFrame();
     virtual bool AcquireFrame();
     virtual void Update();
     virtual void Present();
 protected:
+    Viewport( Window* window ) : parent_window{ window }, m_renderer{ Renderer::get_or_create() }
+    {};
     virtual                 ~Viewport() = default;
+private:
+    static Shared<Viewport> create( Window* window );
 protected:
     friend class Window;
+    Observer<Window>    parent_window;
     Shared<Renderer>    m_renderer;
     
 };

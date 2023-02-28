@@ -3,7 +3,7 @@
 namespace AEON::Graphics
 {
 
-class AEON_DLL Renderer : public Object
+class AEON_DLL Renderer : public Singleton< Renderer >
 {
     public:
         typedef enum : uint8_t
@@ -13,16 +13,13 @@ class AEON_DLL Renderer : public Object
             OpenGL  = BIT(1)
         } GraphicsAPI;
 
-//                                Renderer(){ s_instance = Shared<Renderer>( this ); };
-        static Shared<Renderer> GetOrCreate();
-        static Shared<Renderer> create( GraphicsAPI api = GraphicsAPI::None );
-        static Shared<Renderer> instance() { return s_instance; }
-        static GraphicsAPI      api()      { return s_graphics_api; }
+        static Shared<Renderer> create( GraphicsAPI api = Vulkan );
+                Renderer( GraphicsAPI api = Vulkan ) : m_graphics_api{ api } {};
+                GraphicsAPI      api() { return s_instance ? m_graphics_api : None; }
     protected:
         virtual ~Renderer() = default;
     private:
-        static inline   Shared<Renderer>        s_instance;
-        static inline   GraphicsAPI             s_graphics_api = None;
+        GraphicsAPI             m_graphics_api;
 };
 
 }

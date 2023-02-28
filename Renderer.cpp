@@ -1,16 +1,17 @@
-#include <Graphics/Renderer.h>
+#include "Base.h"
+#include "Renderer.h"
 
-#include <Vendor/glad/include/glad/gl.h>
-#include <Vendor/glad/include/glad/vulkan.h>
+#include "../Vendor/glad/include/glad/vulkan.h"
+#include "../Vendor/glad/include/glad/gl.h"
 
 #define AEON_GL_VERSION GLAD_MAKE_VERSION( 4, 6 )
 #define AEON_VK_VERSION GLAD_MAKE_VERSION( 1, 2 )
 
-#include <Platform/Vulkan/VulkanRenderer.h>
-#include <Platform/OpenGL/OpenGLRenderer.h>
+#include "../Platform/Vulkan/VulkanRenderer.h"
+#include "../Platform/OpenGL/OpenGLRenderer.h"
 
 namespace AEON::Graphics
-{    
+{
     static bool OpenGLSupported()
     {
         int version = gladLoaderLoadGL();  //! returns 0, can't load opengl?

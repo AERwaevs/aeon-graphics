@@ -1,9 +1,11 @@
 #pragma once
 
+#include "Base.h"
+
 namespace AEON::Graphics
 {
 
-class AEON_DLL Renderer : public Singleton< Renderer >
+class Renderer : public Singleton< Renderer >
 {
     public:
         typedef enum : uint8_t

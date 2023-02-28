@@ -1,13 +1,13 @@
 #pragma once
 
-#include <Graphics/Renderer.h>
+#include "Renderer.h"
 
 namespace AEON::Graphics
 {
 
 class Window;
 
-class Viewport : public Object
+class Viewport : public Object< Viewport >
 {
 public:
     virtual bool AdvanceFrame();

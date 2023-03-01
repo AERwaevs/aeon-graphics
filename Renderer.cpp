@@ -42,4 +42,9 @@ namespace AEON::Graphics
         }
         else return Shared<Renderer>();
     }
+
+    Renderer::~Renderer()
+    {
+        if( m_graphics_api == Vulkan ) gladLoaderUnloadVulkan();
+    }
 }

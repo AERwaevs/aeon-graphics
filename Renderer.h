@@ -19,7 +19,7 @@ class Renderer : public Singleton< Renderer >
                 Renderer( GraphicsAPI api = Vulkan ) : m_graphics_api{ api } {};
                 GraphicsAPI      api() { return s_instance ? m_graphics_api : None; }
     protected:
-        virtual ~Renderer() = default;
+        virtual ~Renderer();
     private:
         GraphicsAPI             m_graphics_api;
 };

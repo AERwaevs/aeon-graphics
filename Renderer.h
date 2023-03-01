@@ -17,7 +17,7 @@ class Renderer : public Singleton< Renderer >
 
         static Shared<Renderer> create( GraphicsAPI api = Vulkan );
                 Renderer( GraphicsAPI api = Vulkan ) : m_graphics_api{ api } {};
-                GraphicsAPI      api() { return s_instance ? m_graphics_api : None; }
+                GraphicsAPI      api() { return m_graphics_api; }
     protected:
         virtual ~Renderer();
     private:

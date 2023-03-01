@@ -7,7 +7,7 @@ namespace AEON::Graphics
 
 Shared<Viewport> Viewport::create( Window* window )
 {
-    switch( Renderer::Vulkan )
+    switch( Renderer::get_or_create()->api() )
     {
         case Renderer::Vulkan : return Shared<VulkanViewport>( new VulkanViewport( window ) );
         //case Renderer::OpenGL : return OpenGLViewport::create();

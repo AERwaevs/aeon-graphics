@@ -1,4 +1,4 @@
-add_library( aeon-graphics STATIC Renderer.cpp Viewport.cpp )
+add_library( aeon-graphics STATIC Renderer.cpp Viewport.cpp Window.cpp )
 add_dependencies( aeon-graphics
     aeon-base
     glad_gl46_vk12

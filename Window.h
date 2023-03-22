@@ -1,8 +1,8 @@
 #pragma once
 
-#include <Core/Event.h>
+#include "Viewport.h"
 
-#include <Graphics/Viewport.h>
+#include <Core/Event.h>
 
 namespace AEON::Graphics
 {

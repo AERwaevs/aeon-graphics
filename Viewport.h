@@ -15,7 +15,7 @@ public:
     virtual void Update();
     virtual void Present();
 protected:
-    Viewport( Window* window ) : parent_window{ window }, m_renderer{ Renderer::get_or_create() }
+    Viewport( Window* window ) : parent_window{ window }, m_renderer{ Renderer::instance() }
     {};
     virtual                 ~Viewport() = default;
 private:

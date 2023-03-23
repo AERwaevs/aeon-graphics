@@ -1,5 +1,6 @@
 add_library( aeon-graphics 
     STATIC
+    GraphicsLayer.cpp
     Renderer.cpp
     Viewport.cpp
     Window.cpp

@@ -15,15 +15,15 @@ public:
     virtual void Update();
     virtual void Present();
 protected:
-    Viewport( Window* window ) : parent_window{ window }, m_renderer{ Renderer::instance() }
+    Viewport( Window* window ) : _parent{ window }, _renderer{ Renderer::instance() }
     {};
     virtual                 ~Viewport() = default;
 private:
     static Shared<Viewport> create( Window* window );
 protected:
     friend class Window;
-    Observer<Window>    parent_window;
-    Shared<Renderer>    m_renderer;
+    Observer<Window>    _parent;
+    Shared<Renderer>    _renderer;
     
 };
 using Viewports = List<Shared<Viewport>>;

@@ -15,13 +15,12 @@ class Renderer : public Singleton< Renderer >
             OpenGL  = BIT(1)
         } GraphicsAPI;
 
-        static Shared<Renderer> create( GraphicsAPI api = Vulkan );
-                Renderer( GraphicsAPI api = Vulkan ) : m_graphics_api{ api } {};
-                GraphicsAPI      api() { return m_graphics_api; }
+        Renderer( API api = API::None ) : _api{ api } {}
+        API     api() { return _api; }
     protected:
         virtual ~Renderer();
     private:
-        GraphicsAPI             m_graphics_api;
+        API             _api;
 };
 
 }

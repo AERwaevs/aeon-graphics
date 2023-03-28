@@ -9,12 +9,12 @@ namespace AEON::Graphics
 
 struct WindowProperties
 {
-    String      m_name;
-    bool        m_fullscreen;
-    uint32_t    m_width;
-    uint32_t    m_height;
-    uint32_t    m_pos_x;
-    uint32_t    m_pos_y;
+    String      _name;
+    bool        _fullscreen;
+    uint32_t    _width;
+    uint32_t    _height;
+    uint32_t    _pos_x;
+    uint32_t    _pos_y;
 
     WindowProperties( const String&     name        = "AEON",
                             bool        fullscreen  = false,
@@ -22,8 +22,8 @@ struct WindowProperties
                             uint32_t    height      = 720,
                             uint32_t    pos_x       = 0,
                             uint32_t    pos_y       = 0 ) 
-    :   m_name( name ), m_fullscreen( fullscreen ), m_width( width ),
-        m_height( height ), m_pos_x( pos_x ), m_pos_y( pos_y )
+    :   _name( name ), _fullscreen( fullscreen ), _width( width ),
+        _height( height ), _pos_x( pos_x ), _pos_y( pos_y )
     {};
 };
 
@@ -45,12 +45,12 @@ public:
     virtual bool                PollEvents( Events& events_list )   = 0;
             void                Update();
 protected:
-            Window() : m_viewport{ Viewport::create( this ) } {};
+            Window() : _viewport{ Viewport::create( this ) } {};
     virtual ~Window() = default;
 
 protected:
-            Events              m_events_buffer;
-            Shared<Viewport>    m_viewport;
+            Events              _events_buffer;
+            Shared<Viewport>    _viewport;
 
 };
 using Windows = List<Shared<Window>>;

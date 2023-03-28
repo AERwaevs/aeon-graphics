@@ -45,6 +45,6 @@ namespace AEON::Graphics
 
     Renderer::~Renderer()
     {
-        if( m_graphics_api == Vulkan ) gladLoaderUnloadVulkan();
+        if( _api == Vulkan ) gladLoaderUnloadVulkan();
     }
 }

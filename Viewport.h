@@ -7,7 +7,7 @@ namespace AEON::Graphics
 
 class Window;
 
-class Viewport : public Object< Viewport >
+class Viewport : public Object<>
 {
 public:
     virtual bool AdvanceFrame();

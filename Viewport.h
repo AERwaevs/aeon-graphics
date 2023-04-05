@@ -7,24 +7,20 @@ namespace AEON::Graphics
 
 class Window;
 
-class Viewport : public Object<>
+class Viewport : public ICreatable< Viewport >
 {
 public:
+    Viewport( Window* window ) : _parent{ window }
+    {};
     virtual bool AdvanceFrame();
     virtual bool AcquireFrame();
     virtual void Update();
     virtual void Present();
 protected:
-    Viewport( Window* window ) : _parent{ window }, _renderer{ Renderer::instance() }
-    {};
     virtual                 ~Viewport() = default;
-private:
-    static Shared<Viewport> create( Window* window );
 protected:
     friend class Window;
     Observer<Window>    _parent;
-    Shared<Renderer>    _renderer;
-    
 };
 using Viewports = List<Shared<Viewport>>;
     

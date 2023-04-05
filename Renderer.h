@@ -2,6 +2,8 @@
 
 #include <Base/Base.h>
 
+#include <concepts>
+
 namespace AEON::Graphics
 {
 
@@ -12,23 +14,22 @@ typedef enum API : uint8_t
     OpenGL  = BIT(1)
 } API;
 
-class Renderer : public ICreatable< Renderer >, public ISingleton< Renderer >
+class Renderer : public ISingletonFrom< API, Renderer >
 {
-    public:
-        template< API Api = None, typename T >
-        requires std::derived_from< T, Renderer >
-        static inline auto create()
-        {
-            AE_WARN_IF( Api == None, "Attempting to create renderer with no api!");
-            return ref_ptr<T>();
-        }
+public:    
+    template< typename A, typename = std::enable_if_t< std::same_as< A, From > > >
+    static auto instance( A api )
+    {
+        AE_WARN_IF( api == None, "Attempting to access renderer with no api!");
+        return ref_ptr<Renderer>( _instance );
+    }
 
-        Renderer( API api = API::None ) : _api{ api } {}
-        API     api() { return _api; }
-    protected:
-        virtual ~Renderer();
-    private:
-        API             _api;
+    Renderer( API api = API::None ) { _api = api; }
+    static API api() { return _api; }
+protected:
+    virtual ~Renderer();
+private:
+    static inline API   _api;
 };
 
 }

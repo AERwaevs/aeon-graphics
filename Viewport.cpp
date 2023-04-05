@@ -5,15 +5,15 @@
 namespace AEON::Graphics
 {
 
-Shared<Viewport> Viewport::create( Window* window )
-{
-    switch( Renderer::instance()->api() )
-    {
-        case Renderer::Vulkan : return Shared<VulkanViewport>( new VulkanViewport( window ) );
-        //case Renderer::OpenGL : return OpenGLViewport::create();
-        default: return Shared<Viewport>();
-    }
-}
+//Shared<Viewport> Viewport::create( Window* window )
+//{
+//    switch( Renderer::instance()->api() )
+//    {
+//        case API::Vulkan : return VulkanViewport::create( window );
+//        //case Renderer::OpenGL : return OpenGLViewport::create();
+//        default: return Shared<Viewport>();
+//    }
+//}
 
 bool Viewport::AdvanceFrame()
 {

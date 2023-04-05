@@ -27,7 +27,7 @@ struct WindowProperties
     {};
 };
 
-class Window : public Object<>
+class Window : public Object
 {
     using Properties = WindowProperties;
 

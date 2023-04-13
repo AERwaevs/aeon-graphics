@@ -14,7 +14,7 @@ typedef enum API : uint8_t
     OpenGL  = BIT(1)
 } API;
 
-class Renderer : public ISingletonFrom< API, Renderer >
+class Renderer : public virtual Object, public ISingletonFrom< API, Renderer >
 {
 public:    
     template< typename A, typename = std::enable_if_t< std::same_as< A, From > > >

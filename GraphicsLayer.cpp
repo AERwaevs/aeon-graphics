@@ -2,9 +2,8 @@
 #include "Window.h"
 #include "Renderer.h"
 
-#include <Core/Application.h>
 #include <Core/Events/WindowEvents.h>
-#include <Core/Events/ApplicationEvents.h>
+#include <Core/Events/LayerEvents.h>
 
 namespace AEON::Graphics
 {
@@ -40,25 +39,23 @@ void GraphicsLayer::OnUpdate()
         window->PollEvents( _events );
         window->Update();
     }
-
-    if( _windows.size() == 0 ) Application::instance().SendEvent( new ApplicationCloseEvent() );
-    AE_INFO( "%s updating", _name.c_str() );
 }
 
-bool GraphicsLayer::PollEvents( Events& destination )
+bool GraphicsLayer::PollEvents( Events& poll_to, bool clear_unhandled )
 {
     for( auto& event : _events )
     {
         event->Dispatch< WindowCloseEvent >( this, &GraphicsLayer::OnWindowClose );
     }
 
-    return Layer::PollEvents( destination );
+    return Layer::PollEvents( poll_to, clear_unhandled );
 }
 
 bool GraphicsLayer::OnWindowClose( WindowCloseEvent& event )
 {
     _windows.remove( event.window() );
-    return false;
+    if( _windows.size() == 0 ) _events.emplace_back( new LayerPopEvent( this ) );
+    return true;
 }
 
 } // namespace AEON::Graphics

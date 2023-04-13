@@ -7,7 +7,7 @@ namespace AEON::Graphics
 
 class Window;
 
-class Viewport : public ICreatable< Viewport >
+class Viewport : public virtual Object, Implements< Viewport, ICreatable >
 {
 public:
     Viewport( Window* window ) : _parent{ window }

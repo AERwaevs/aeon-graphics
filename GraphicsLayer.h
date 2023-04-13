@@ -19,14 +19,14 @@ public:
     GraphicsLayer( API api );
     virtual ~GraphicsLayer();
 
-    bool PollEvents( Events& unhandled ) override;
+    void AddWindow( ref_ptr<Window> window );
+    bool PollEvents( Events&, bool = true ) override;
     void OnAttach() override;
     void OnDetach() override;
     void OnUpdate() override;
 protected:
     bool OnWindowClose( WindowCloseEvent& event );
 private:
-    Events              _events;
     Windows             _windows;
     ref_ptr<Renderer>   _renderer;
 };

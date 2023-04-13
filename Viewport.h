@@ -10,7 +10,7 @@ class Window;
 class Viewport : public virtual Object, Implements< Viewport, ICreatable >
 {
 public:
-    Viewport( Window* window ) : _parent{ window }
+    Viewport( Window* window ) : _parent( window ), _renderer( Renderer::create() ) 
     {};
     virtual bool AdvanceFrame();
     virtual bool AcquireFrame();
@@ -20,7 +20,8 @@ protected:
     virtual                 ~Viewport() = default;
 protected:
     friend class Window;
-    Observer<Window>    _parent;
+    spy_ptr<Window>     _parent;
+    ref_ptr<Renderer>   _renderer;
 };
 using Viewports = List<Shared<Viewport>>;
     

@@ -7,10 +7,10 @@ namespace AEON::Graphics
 
 class Window;
 
-class Viewport : public virtual Object, Implements< Viewport, ICreatable >
+class Viewport : public virtual Object, public Implements< Viewport, ICreate >
 {
 public:
-    Viewport( Window* window ) : _parent( window ), _renderer( Renderer::create() ) 
+    Viewport( Window* window ) : _parent( window ), _renderer( Renderer::instance() ) 
     {};
     virtual bool AdvanceFrame();
     virtual bool AcquireFrame();

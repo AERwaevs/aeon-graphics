@@ -13,7 +13,7 @@
 namespace AEON::Graphics
 {
     
-class GraphicsLayer : public Layer, public Implements< GraphicsLayer, ICreatable >
+class GraphicsLayer : public Layer, public Implements< GraphicsLayer, ICreate >
 {
 public:
     GraphicsLayer( API api );

@@ -29,3 +29,7 @@ target_include_directories( aeon-graphics
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+if( WIN32 )
+    target_link_libraries( aeon-graphics PUBLIC aeon-platform-windows )
+endif()

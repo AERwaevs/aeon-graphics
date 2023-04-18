@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Viewport.h"
+#include "Renderer.h"
 
 #include <Core/Event.h>
 #include <Core/EventListener.h>
@@ -32,9 +33,7 @@ public:
 
             void                Update();
 protected:
-            Window( const WindowProperties& props = WindowProperties() )
-            : _viewport( Viewport::create( this ) )
-            {};
+            Window( const WindowProperties& props = WindowProperties() );
     virtual ~Window() = default;
 
 protected:

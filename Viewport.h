@@ -7,9 +7,12 @@ namespace AEON::Graphics
 
 class Window;
 
-class Viewport : public virtual Object, public Implements< Viewport, ICreate >
+class Viewport : public virtual Object
 {
 public:
+    template< API api = API::Default >
+    static ref_ptr<Viewport> create( Window* window );
+
     Viewport( Window* window ) : _parent( window ), _renderer( Renderer::instance() ) 
     {};
     virtual bool AdvanceFrame();
@@ -25,4 +28,10 @@ protected:
 };
 using Viewports = List<Shared<Viewport>>;
     
+template<> inline ref_ptr<Viewport> Viewport::create< API::None >( Window* window )
+{
+    AE_WARN( "Creating viewport with no API" );
+    return{};
+}
+
 } // namespace AEON::Graphics

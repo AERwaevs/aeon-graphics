@@ -2,7 +2,11 @@
 
 namespace AEON::Graphics
 {
-    
+
+Window::Window( const WindowProperties& props )
+: _viewport( Viewport::create( this ) )
+{};
+
 void AEON_API Window::Update()
 {
     // TODO implement viewport functions

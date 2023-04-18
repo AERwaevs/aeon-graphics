@@ -5,6 +5,7 @@ add_library( aeon-graphics
 )
 add_dependencies( aeon-graphics
     aeon-base
+    aeon-platform-vulkan
     glad_gl46_vk12
 )
 
@@ -20,6 +21,7 @@ target_precompile_headers( aeon-graphics
 target_link_libraries( aeon-graphics
     PUBLIC
         aeon-base
+        aeon-platform-vulkan
         glad_gl46_vk12
 )
 

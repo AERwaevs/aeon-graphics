@@ -26,7 +26,7 @@ protected:
     spy_ptr<Window>     _parent;
     ref_ptr<Renderer>   _renderer;
 };
-using Viewports = List<Shared<Viewport>>;
+using Viewports = List<ref_ptr<Viewport>>;
     
 template<> inline ref_ptr<Viewport> Viewport::create< API::None >( Window* window )
 {

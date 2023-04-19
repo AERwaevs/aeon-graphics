@@ -23,7 +23,7 @@ struct WindowProperties
 class Window : public virtual Object, public Implements< Window, IEventListener >
 {
 public:
-    static  Shared<Window>      create( const WindowProperties& props = WindowProperties() );
+    static  ref_ptr<Window>      create( const WindowProperties& props = WindowProperties() );
     virtual String              name()                   const = 0;
     virtual bool                minimized()              const = 0;
     virtual uint32_t            width()                  const = 0;
@@ -37,9 +37,9 @@ protected:
     virtual ~Window() = default;
 
 protected:
-            Shared<Viewport>    _viewport;
+            ref_ptr<Viewport>    _viewport;
 
 };
-using Windows = List<Shared<Window>>;
+using Windows = List<ref_ptr<Window>>;
 
 }

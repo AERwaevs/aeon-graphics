@@ -27,7 +27,6 @@ public:
     template< API api = API::Default >
     static auto instance( Renderer* renderer = nullptr )
     {
-        AE_WARN_IF( !_instance && !renderer, "No instance of renderer!" );
         AE_WARN_IF( _instance && renderer, "Already an instance of renderer!" );
         if( !_instance ) _instance = renderer ? ref_ptr( renderer ) : Renderer::create< api >();
         return _instance;

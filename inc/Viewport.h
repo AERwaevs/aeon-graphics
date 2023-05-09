@@ -13,7 +13,7 @@ public:
     template< API api = API::Default >
     static ref_ptr<Viewport> create( Window* window );
 
-    Viewport( Window* window ) : _parent( window ), _renderer( Renderer::instance() ) 
+    Viewport( Window* window ) : _window( window ), _renderer( Renderer::instance() ) 
     {};
     virtual bool AdvanceFrame();
     virtual bool AcquireFrame();
@@ -23,7 +23,7 @@ protected:
     virtual                 ~Viewport() = default;
 protected:
     friend class Window;
-    spy_ptr<Window>     _parent;
+    spy_ptr<Window>     _window;
     ref_ptr<Renderer>   _renderer;
 };
 using Viewports = List<ref_ptr<Viewport>>;

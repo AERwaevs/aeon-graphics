@@ -3,8 +3,7 @@
 #include "Viewport.h"
 #include "Renderer.h"
 
-#include <Core/Event.h>
-#include <Core/EventListener.h>
+#include <EventListener.h>
 
 namespace AEON::Graphics
 {
@@ -24,6 +23,8 @@ class Window : public virtual Object, public Implements< Window, IEventListener 
 {
 public:
     static  ref_ptr<Window>      create( const WindowProperties& props = WindowProperties() );
+    template< typename T = void >
+    operator                    T();
     virtual String              name()                   const = 0;
     virtual bool                minimized()              const = 0;
     virtual uint32_t            width()                  const = 0;

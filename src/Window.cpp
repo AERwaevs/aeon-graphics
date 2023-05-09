@@ -1,4 +1,4 @@
-#include "Graphics/Window.h"
+#include <Graphics/Window.h>
 
 namespace AEON::Graphics
 {

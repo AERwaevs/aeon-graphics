@@ -2,9 +2,10 @@
 
 #include <Base/Base.h>
 
-#include <Core/Event.h>
-#include <Core/Events/WindowEvents.h>
-#include <Core/EventListener.h>
+#include <Base/Event.h>
+#include <Base/Events/WindowEvents.h>
+#include <Base/EventListener.h>
+
 #include <Core/Layer.h>
 
 #include "Window.h"

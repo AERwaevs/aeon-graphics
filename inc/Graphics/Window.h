@@ -1,9 +1,10 @@
 #pragma once
 
+#include <Base/Base.h>
+#include <Base/EventListener.h>
+
 #include "Viewport.h"
 #include "Renderer.h"
-
-#include <EventListener.h>
 
 namespace AEON::Graphics
 {

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Base/Base.h>
+
 #include "Renderer.h"
 
 namespace AEON::Graphics

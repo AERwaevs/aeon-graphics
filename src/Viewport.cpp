@@ -2,16 +2,18 @@
 
 namespace AEON::Graphics
 {
+    
+template<> ref_ptr<Viewport> Viewport::create< API::None >( Window* window )
+{
+    AE_WARN( "Creating viewport with no API" );
+    return{};
+}
 
-//ref_ptr<Viewport> Viewport::create( Window* window )
-//{
-//    switch( Renderer::instance()->api() )
-//    {
-//        case API::Vulkan : return VulkanViewport::create( window );
-//        //case Renderer::OpenGL : return OpenGLViewport::create();
-//        default: return ref_ptr<Viewport>();
-//    }
-//}
+Viewport::Viewport( Window* window )
+: _window( window ), _renderer( Renderer::instance() )
+{
+
+};
 
 bool Viewport::AdvanceFrame()
 {

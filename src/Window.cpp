@@ -3,18 +3,10 @@
 namespace AEON::Graphics
 {
 
-Window::Window( const WindowProperties& props )
-: _viewport( Viewport::create( this ) )
-{};
-
-void AEON_API Window::Update()
+Window::Window( ref_ptr<Viewport> viewport )
+: _viewport( viewport )
 {
-    // TODO implement viewport functions
-    //while( m_viewport->AdvanceFrame() )
-    //{
-    //    m_viewport->Update();
-    //    m_viewport->Present();
-    //}
-}
-    
+
+};
+
 } // namespace AEON::Graphics

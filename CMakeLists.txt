@@ -31,6 +31,6 @@ target_link_libraries( aeon-graphics
         aeon-base
 )
 
-#if( WIN32 )
-#    target_link_libraries( aeon-graphics PUBLIC aeon-platform-windows )
-#endif()
+if( WIN32 )
+    target_link_libraries( aeon-graphics PRIVATE aeon-platform-windows )
+endif()

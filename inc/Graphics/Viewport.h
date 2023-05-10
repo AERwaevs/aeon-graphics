@@ -14,26 +14,19 @@ class Viewport : public virtual Object
 public:
     template< API api = API::Default >
     static ref_ptr<Viewport> create( Window* window );
-
-    Viewport( Window* window ) : _window( window ), _renderer( Renderer::instance() ) 
-    {};
+public:
     virtual bool AdvanceFrame();
     virtual bool AcquireFrame();
     virtual void Update();
     virtual void Present();
 protected:
-    virtual                 ~Viewport() = default;
+            Viewport( Window* window );
+    virtual ~Viewport() = default;
 protected:
     friend class Window;
     spy_ptr<Window>     _window;
     ref_ptr<Renderer>   _renderer;
 };
 using Viewports = List<ref_ptr<Viewport>>;
-    
-template<> inline ref_ptr<Viewport> Viewport::create< API::None >( Window* window )
-{
-    AE_WARN( "Creating viewport with no API" );
-    return{};
-}
 
 } // namespace AEON::Graphics

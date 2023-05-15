@@ -1,9 +1,6 @@
 # cmake -------------------------------------------------------------------------------------------
 cmake_minimum_required( VERSION 3.2.0 )
 
-set( CMAKE_CXX_STANDARD          20  )
-set( CMAKE_CXX_STANDARD_REQUIRED ON  )
-set( CMAKE_CXX_EXTENSIONS        OFF )
 # AEON::Graphics ----------------------------------------------------------------------------------
 set( GRAPHICS_LIB ${CMAKE_CURRENT_SOURCE_DIR}/lib )
 set( GRAPHICS_INC ${CMAKE_CURRENT_SOURCE_DIR}/inc )
@@ -24,13 +21,14 @@ add_dependencies( aeon-graphics
 
 target_precompile_headers( aeon-graphics PRIVATE ${HEADERS} ${STD_HEADERS} )
 
-target_include_directories( aeon-graphics PUBLIC ${GRAPHICS_INC})
+target_include_directories( aeon-graphics PUBLIC ${GRAPHICS_INC} )
 
-target_link_libraries( aeon-graphics
-    PRIVATE
-        aeon-base
-)
+target_link_libraries( aeon-graphics PRIVATE aeon-base )
 
 if( WIN32 )
     target_link_libraries( aeon-graphics PRIVATE aeon-platform-windows )
+endif()
+
+if( TARGET aeon-platform-vulkan )
+    target_link_libraries( aeon-graphics PRIVATE aeon-platform-vulkan )
 endif()

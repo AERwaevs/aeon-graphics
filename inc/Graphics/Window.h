@@ -38,7 +38,6 @@ public:
 
             void                Update(){};
 protected:
-            Window( ref_ptr<Viewport> viewport );
     virtual ~Window() = default;
 protected:
             ref_ptr<Viewport>    _viewport;

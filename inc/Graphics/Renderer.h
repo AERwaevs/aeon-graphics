@@ -23,6 +23,7 @@ public:
     {
         AE_WARN_IF( _instance && renderer, "Already an instance of renderer!" );
         if( !_instance ) _instance = renderer ? ref_ptr( renderer ) : Renderer::create< api >();
+        AE_WARN_IF( !_instance, "Failed to get an instance of renderer!" );
         return _instance;
     }
 

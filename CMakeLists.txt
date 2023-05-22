@@ -15,14 +15,13 @@ add_library( aeon-graphics STATIC
 #  add_library( ${PROJECT_NAME}::graphics ALIAS graphics )
 #endif()
 
-add_dependencies( aeon-graphics
-    aeon-base
+#target_precompile_headers( aeon-graphics PRIVATE ${HEADERS} ${STD_HEADERS} )
+
+target_include_directories( aeon-graphics 
+    PUBLIC
+        $<BUILD_INTERFACE:${GRAPHICS_INC}>
+	    $<INSTALL_INTERFACE:inc>
 )
-
-target_precompile_headers( aeon-graphics PRIVATE ${HEADERS} ${STD_HEADERS} )
-
-target_include_directories( aeon-graphics PUBLIC ${GRAPHICS_INC} )
-
 target_link_libraries( aeon-graphics PRIVATE aeon-base )
 
 if( WIN32 )

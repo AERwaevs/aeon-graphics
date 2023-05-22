@@ -9,8 +9,7 @@ typedef enum API : uint8_t
 {
     None    = 0,
     Vulkan  = BIT(0),
-    OpenGL  = BIT(1),
-    Default = Vulkan
+    Default = None
 } API;
 
 } // namespace AEON::Graphics

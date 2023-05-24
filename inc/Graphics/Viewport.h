@@ -20,12 +20,12 @@ public:
     virtual void Update();
     virtual void Present();
 protected:
-            Viewport( Window* window );
+    Viewport( Window* window, Renderer* renderer ) : _window( window ), _renderer( renderer ) {};
     virtual ~Viewport() = default;
 protected:
     friend class Window;
-    spy_ptr<Window>     _window;
-    ref_ptr<Renderer>   _renderer;
+    spy_ptr<Window>   _window;
+    ref_ptr<Renderer> _renderer;
 };
 using Viewports = List<ref_ptr<Viewport>>;
 

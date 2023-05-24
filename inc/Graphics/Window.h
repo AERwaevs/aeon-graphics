@@ -1,12 +1,10 @@
 #pragma once
 
-#include <any>
-
 #include <Base/Base.h>
 #include <Base/EventListener.h>
 
-#include "Viewport.h"
 #include "Renderer.h"
+#include "Viewport.h"
 
 namespace AEON::Graphics
 {
@@ -40,7 +38,8 @@ public:
 protected:
     virtual ~Window() = default;
 protected:
-            ref_ptr<Viewport>    _viewport;
+            ref_ptr<Renderer>   _renderer;
+            ref_ptr<Viewport>   _viewport;
 
 };
 using Windows = List<ref_ptr<Window>>;

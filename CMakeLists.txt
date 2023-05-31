@@ -16,28 +16,24 @@ set( GRAPHICS_SOURCE
     ${GRAPHICS_SRC_DIR}/Window.cpp
 )
 
-add_library( aeon-graphics STATIC
-    ${GRAPHICS_HEADER}
-    ${GRAPHICS_SOURCE}
+# gfx interface -----------------------------------------------------------------------------------
+add_library( graphics_interface INTERFACE ${GRAPHICS_HEADER} )
+target_include_directories( graphics_interface INTERFACE
+    $<BUILD_INTERFACE:${GRAPHICS_INC_DIR}>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
+target_link_libraries( graphics_interface INTERFACE base )
 
-#if( NOT PROJECT_IS_TOP_LEVEL )
-#  add_library( ${PROJECT_NAME}::graphics ALIAS graphics )
-#endif()
-
-#target_precompile_headers( aeon-graphics PRIVATE ${HEADERS} ${STD_HEADERS} )
-
-target_include_directories( aeon-graphics 
+# gfx module --------------------------------------------------------------------------------------
+add_library( graphics SHARED ${GRAPHICS_SOURCE} )
+target_link_libraries( graphics
     PUBLIC
-        $<BUILD_INTERFACE:${GRAPHICS_INC_DIR}>
-	    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+        graphics_interface
+        $<$<BOOL:${WIN32}>:win32>
+        $<$<BOOL:${LINUX}>:linux>
+        $<$<BOOL:${ANDROID}>:android>
+        $<$<BOOL:${IOS}>:ios>
+        $<$<AND:$<BOOL:${APPLE}>,$<NOT:$<BOOL:${IOS}>>>:macos>
+        $<$<TARGET_EXISTS:graphics_vulkan>:graphics_vulkan>
 )
-target_link_libraries( aeon-graphics PRIVATE aeon-base )
-
-if( WIN32 )
-    target_link_libraries( aeon-graphics PRIVATE aeon-platform-windows )
-endif()
-
-if( TARGET aeon-platform-vulkan )
-    target_link_libraries( aeon-graphics PRIVATE aeon-platform-vulkan )
-endif()
+add_library( aer::gfx ALIAS graphics )

@@ -34,6 +34,6 @@ target_link_libraries( graphics
         $<$<BOOL:${ANDROID}>:android>
         $<$<BOOL:${IOS}>:ios>
         $<$<AND:$<BOOL:${APPLE}>,$<NOT:$<BOOL:${IOS}>>>:macos>
-        $<$<TARGET_EXISTS:graphics_vulkan>:graphics_vulkan>
+        $<$<TARGET_EXISTS:vulkan>:vulkan>
 )
 add_library( aer::gfx ALIAS graphics )

@@ -1,6 +1,6 @@
 #include <Graphics/Window.h>
 
-namespace AEON::Graphics
+namespace aer::Graphics
 {
 
-} // namespace AEON::Graphics
+} // namespace aer::Graphics

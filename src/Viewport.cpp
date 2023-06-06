@@ -1,6 +1,6 @@
 #include <Graphics/Viewport.h>
 
-namespace AEON::Graphics
+namespace aer::Graphics
 {
 
 template<> ref_ptr<Viewport> Viewport::create< API::None >( Window* window )
@@ -29,4 +29,4 @@ void Viewport::Present()
     
 }
     
-} // namespace AEON::Graphics
+} // namespace aer::Graphics

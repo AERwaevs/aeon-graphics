@@ -4,7 +4,7 @@
 
 #include "Renderer.h"
 
-namespace AEON::Graphics
+namespace aer::Graphics
 {
 
 class Window;
@@ -29,4 +29,4 @@ protected:
 };
 using Viewports = List<ref_ptr<Viewport>>;
 
-} // namespace AEON::Graphics
+} // namespace aer::Graphics

@@ -6,7 +6,7 @@
 #include "Renderer.h"
 #include "Viewport.h"
 
-namespace AEON::Graphics
+namespace aer::Graphics
 {
     
 struct WindowProperties

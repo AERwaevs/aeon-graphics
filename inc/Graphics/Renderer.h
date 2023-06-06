@@ -4,7 +4,7 @@
 
 #include "API.h"
 
-namespace AEON::Graphics
+namespace aer::Graphics
 {
 
 class Renderer : public Object, public Interfaces< Renderer, ISingleton >

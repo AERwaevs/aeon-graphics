@@ -3,7 +3,7 @@
 #include <Base/Base.h>
 #include <Base/Event.h>
 
-namespace AEON
+namespace aer
 {
     
 namespace Graphics
@@ -69,4 +69,4 @@ struct WindowUnfocusEvent : public WindowEvent, ITypeInfo< WindowUnfocusEvent >
     WindowUnfocusEvent( auto* window ) : WindowEvent( window ) {};
 };
 
-} // namespace AEON
+} // namespace aer

@@ -9,6 +9,7 @@ set( GRAPHICS_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src )
 set( GRAPHICS_HEADER
     ${GRAPHICS_INC_DIR}/Graphics/Viewport.h
     ${GRAPHICS_INC_DIR}/Graphics/Window.h
+    ${GRAPHICS_INC_DIR}/Events/WindowEvents.h
 )
 
 set( GRAPHICS_SOURCE 

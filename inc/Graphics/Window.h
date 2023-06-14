@@ -6,7 +6,7 @@
 #include "Renderer.h"
 #include "Viewport.h"
 
-namespace aer::Graphics
+namespace aer::gfx
 {
     
 struct WindowProperties

@@ -4,7 +4,7 @@
 
 #include "API.h"
 
-namespace aer::Graphics
+namespace aer::gfx
 {
 
 class Renderer : public Object, public Interfaces< Renderer, ISingleton >

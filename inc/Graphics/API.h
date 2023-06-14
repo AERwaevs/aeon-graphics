@@ -2,7 +2,7 @@
 
 #include <Base/Base.h>
 
-namespace aer::Graphics
+namespace aer::gfx
 {
 
 typedef enum API : uint8_t
@@ -12,4 +12,4 @@ typedef enum API : uint8_t
     Default = None
 } API;
 
-} // namespace aer::Graphics
+} // namespace aer::gfx

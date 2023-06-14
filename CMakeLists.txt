@@ -1,7 +1,7 @@
 # cmake -------------------------------------------------------------------------------------------
 cmake_minimum_required( VERSION 3.2.0 )
 
-# AEON::Graphics ----------------------------------------------------------------------------------
+# Graphics ----------------------------------------------------------------------------------
 set( GRAPHICS_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib )
 set( GRAPHICS_INC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/inc )
 set( GRAPHICS_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src )

@@ -1,6 +1,6 @@
 #include <Graphics/Window.h>
 
-namespace aer::Graphics
+namespace aer::gfx
 {
 
-} // namespace aer::Graphics
+} // namespace aer::gfx

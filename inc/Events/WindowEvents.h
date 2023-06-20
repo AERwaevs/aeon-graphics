@@ -19,11 +19,13 @@ struct WindowEvent : public Event, ITypeInfo< WindowEvent >
 private:
     spy_ptr<gfx::Window>  _window;
 };
+AER_TYPE_NAME( aer::WindowEvent );
 
 struct WindowCloseEvent : public WindowEvent, ITypeInfo< WindowCloseEvent >
 {
     WindowCloseEvent( auto* window ) : WindowEvent( window ) {};
 };
+AER_TYPE_NAME( aer::WindowCloseEvent );
         
 struct WindowMoveEvent : public WindowEvent, ITypeInfo< WindowMoveEvent >
 {
@@ -36,6 +38,7 @@ private:
     uint32_t _x;
     uint32_t _y;
 };
+AER_TYPE_NAME( aer::WindowMoveEvent );
 
 struct WindowResizeEvent : public WindowEvent, ITypeInfo< WindowResizeEvent >
 {
@@ -48,25 +51,30 @@ private:
     uint32_t    _width;
     uint32_t    _height;
 };
+AER_TYPE_NAME( aer::WindowResizeEvent );
 
 struct WindowMinimizeEvent : public WindowEvent, ITypeInfo< WindowMinimizeEvent >
 {
     WindowMinimizeEvent( auto* window ) : WindowEvent( window ) {};
 };
+AER_TYPE_NAME( aer::WindowMinimizeEvent );
 
 struct WindowMaximizeEvent : public WindowEvent, ITypeInfo< WindowMaximizeEvent >
 {
     WindowMaximizeEvent( auto* window ) : WindowEvent( window ) {};
 };
+AER_TYPE_NAME( aer::WindowMaximizeEvent );
     
 struct WindowFocusEvent : public WindowEvent, ITypeInfo< WindowFocusEvent >
 {
     WindowFocusEvent( auto* window ) : WindowEvent( window ) {};
 };
+AER_TYPE_NAME( aer::WindowFocusEvent );
         
 struct WindowUnfocusEvent : public WindowEvent, ITypeInfo< WindowUnfocusEvent >
 {
     WindowUnfocusEvent( auto* window ) : WindowEvent( window ) {};
 };
+AER_TYPE_NAME( aer::WindowUnfocusEvent );
 
 } // namespace aer

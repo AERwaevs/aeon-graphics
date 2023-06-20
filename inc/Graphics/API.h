@@ -7,8 +7,8 @@ namespace aer::gfx
 
 typedef enum API : uint8_t
 {
-    None    = 0,
-    Vulkan  = BIT(0),
+    None    = 0b0,
+    Vulkan  = 0b1,
     Default = None
 } API;
 

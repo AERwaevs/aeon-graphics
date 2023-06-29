@@ -27,6 +27,6 @@ protected:
     spy_ptr<Window>   _window;
     ref_ptr<Renderer> _renderer;
 };
-using Viewports = List<ref_ptr<Viewport>>;
+using Viewports = std::list<ref_ptr<Viewport>>;
 
 } // namespace aer::gfx

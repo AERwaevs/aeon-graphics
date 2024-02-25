@@ -40,6 +40,8 @@ protected:
 protected:
             ref_ptr<Renderer>   _renderer;
             ref_ptr<Viewport>   _viewport;
+            std::any            _nativeWindow;
+            std::any            _systemConnection;
 
 };
 using Windows = std::list<ref_ptr<Window>>;

@@ -7,7 +7,7 @@
 namespace aer::gfx
 {
 
-class Renderer : public Object, public Interfaces< Renderer, ISingleton >
+class Renderer : public Object, public Interfaces< Renderer >
 {
 public:
     template< API api >
@@ -16,7 +16,7 @@ public:
     template< API api = API::Default >
     static auto get_or_create()
     {
-        if( !_singleton ) _singleton = create< api >();
+        static ref_ptr<Renderer> _singleton( create< api >() );
         return _singleton;
     }
 

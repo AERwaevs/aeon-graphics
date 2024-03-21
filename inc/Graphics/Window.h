@@ -18,6 +18,8 @@ struct WindowProperties
     uint32_t    height{      720    };
     uint32_t    posx{        0      };
     uint32_t    posy{        0      };
+    std::any    nativeWindow;
+    std::any    systemConnection;
 };
 
 
@@ -40,8 +42,6 @@ protected:
 protected:
             ref_ptr<Renderer>   _renderer;
             ref_ptr<Viewport>   _viewport;
-            std::any            _nativeWindow;
-            std::any            _systemConnection;
 
 };
 using Windows = std::list<ref_ptr<Window>>;

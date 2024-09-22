@@ -11,7 +11,7 @@ namespace Graphics
     class Window;   // forward declare
 }
 
-struct WindowEvent : public Event, ITypeInfo< WindowEvent >
+struct WindowEvent : public Event
 {
     WindowEvent( gfx::Window* window ) : _window( window ) {};
     
@@ -19,15 +19,13 @@ struct WindowEvent : public Event, ITypeInfo< WindowEvent >
 private:
     spy_ptr<gfx::Window>  _window;
 };
-AER_TYPE_NAME( aer::WindowEvent );
 
-struct WindowCloseEvent : public WindowEvent, ITypeInfo< WindowCloseEvent >
+struct WindowCloseEvent : public WindowEvent
 {
     WindowCloseEvent( auto* window ) : WindowEvent( window ) {};
 };
-AER_TYPE_NAME( aer::WindowCloseEvent );
         
-struct WindowMoveEvent : public WindowEvent, ITypeInfo< WindowMoveEvent >
+struct WindowMoveEvent : public WindowEvent
 {
     WindowMoveEvent( auto* window, uint32_t pos_x, uint32_t pos_y )
     : WindowEvent( window ), _x( pos_x ), _y( pos_y ) {};
@@ -38,9 +36,8 @@ private:
     uint32_t _x;
     uint32_t _y;
 };
-AER_TYPE_NAME( aer::WindowMoveEvent );
 
-struct WindowResizeEvent : public WindowEvent, ITypeInfo< WindowResizeEvent >
+struct WindowResizeEvent : public WindowEvent
 {
     WindowResizeEvent( auto* window, uint32_t width, uint32_t height )
     : WindowEvent( window ), _width( width ), _height( height ) {};
@@ -51,30 +48,25 @@ private:
     uint32_t    _width;
     uint32_t    _height;
 };
-AER_TYPE_NAME( aer::WindowResizeEvent );
 
-struct WindowMinimizeEvent : public WindowEvent, ITypeInfo< WindowMinimizeEvent >
+struct WindowMinimizeEvent : public WindowEvent
 {
     WindowMinimizeEvent( auto* window ) : WindowEvent( window ) {};
 };
-AER_TYPE_NAME( aer::WindowMinimizeEvent );
 
-struct WindowMaximizeEvent : public WindowEvent, ITypeInfo< WindowMaximizeEvent >
+struct WindowMaximizeEvent : public WindowEvent
 {
     WindowMaximizeEvent( auto* window ) : WindowEvent( window ) {};
 };
-AER_TYPE_NAME( aer::WindowMaximizeEvent );
     
-struct WindowFocusEvent : public WindowEvent, ITypeInfo< WindowFocusEvent >
+struct WindowFocusEvent : public WindowEvent
 {
     WindowFocusEvent( auto* window ) : WindowEvent( window ) {};
 };
-AER_TYPE_NAME( aer::WindowFocusEvent );
         
-struct WindowUnfocusEvent : public WindowEvent, ITypeInfo< WindowUnfocusEvent >
+struct WindowUnfocusEvent : public WindowEvent
 {
     WindowUnfocusEvent( auto* window ) : WindowEvent( window ) {};
 };
-AER_TYPE_NAME( aer::WindowUnfocusEvent );
 
 } // namespace aer

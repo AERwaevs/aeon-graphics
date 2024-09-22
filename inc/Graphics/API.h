@@ -9,7 +9,7 @@ typedef enum API : uint8_t
 {
     None    = 0b0,
     Vulkan  = 0b1,
-    Default = None
+    Default = Vulkan
 } API;
 
 } // namespace aer::gfx

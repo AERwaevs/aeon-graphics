@@ -13,6 +13,7 @@ set( GRAPHICS_HEADER
 )
 
 set( GRAPHICS_SOURCE 
+    ${GRAPHICS_SRC_DIR}/Renderer.cpp
     ${GRAPHICS_SRC_DIR}/Viewport.cpp
     ${GRAPHICS_SRC_DIR}/Window.cpp
 )

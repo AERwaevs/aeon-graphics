@@ -23,7 +23,7 @@ struct WindowProperties
 };
 
 
-class Window : public virtual Object, public Interfaces< Window, IEventListener >
+class Window : public Object, public IEventListener<Window>
 {
 public:
     static  ref_ptr<Window>     create( const WindowProperties& props = WindowProperties() );

@@ -7,27 +7,14 @@
 namespace aer::gfx
 {
 
-class Renderer : public Object, public Interfaces< Renderer >
+class Renderer : public inherit< Renderer, Object >
 {
 public:
-    template< API api >
-    static ref_ptr<Renderer> create();
-
     template< API api = API::Default >
-    static auto get_or_create()
-    {
-        static ref_ptr<Renderer> _singleton( create< api >() );
-        return _singleton;
-    }
+    static ref_ptr<Renderer> get_or_create();
 
 protected:
-    virtual ~Renderer() = default;
+    virtual ~Renderer() noexcept = default;
 };
-
-template<> inline ref_ptr<Renderer> Renderer::create< API::None >()
-{
-    AE_WARN( "Creating renderer with no API" );
-    return{};
-}
 
 }

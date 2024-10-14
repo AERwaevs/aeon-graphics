@@ -37,7 +37,6 @@ public:
     virtual void                SetName( const std::string& )  = 0;
 
             void                Update(){};
-protected:
     virtual ~Window() = default;
 protected:
             ref_ptr<Renderer>   _renderer;

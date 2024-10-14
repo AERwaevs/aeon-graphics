@@ -13,7 +13,6 @@ public:
     template< API api = API::Default >
     static ref_ptr<Renderer> get_or_create();
 
-protected:
     virtual ~Renderer() noexcept = default;
 };
 

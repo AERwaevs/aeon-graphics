@@ -16,7 +16,7 @@
 #include <vk/state/DepthStencilState.h>
 #include <vk/state/ColorBlendState.h>
 
-namespace aer::gfx
+namespace aer
 {
 
 //template<>
@@ -185,4 +185,4 @@ VulkanViewport::~VulkanViewport()
 {
 }
 
-} // namespace aer::gfx
+} // namespace aer

@@ -4,7 +4,7 @@
 
 #include "API.h"
 
-namespace aer::gfx
+namespace aer
 {
 
 class Renderer : public inherit< Renderer, Object >

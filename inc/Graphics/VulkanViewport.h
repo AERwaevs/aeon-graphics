@@ -21,7 +21,7 @@
 
 #include "VulkanRenderer.h"
 
-namespace aer::gfx
+namespace aer
 {
     class VulkanViewport : public Viewport
     {
@@ -55,4 +55,4 @@ namespace aer::gfx
         //ref_ptr<vk::ImageView>          _depthImageView;
 
     };
-} // namespace aer::gfx
+} // namespace aer

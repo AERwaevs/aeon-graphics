@@ -2,7 +2,7 @@
 
 #include <Base/Base.h>
 
-namespace aer::gfx
+namespace aer
 {
 
 typedef enum API : uint8_t
@@ -12,4 +12,4 @@ typedef enum API : uint8_t
     Default = Vulkan
 } API;
 
-} // namespace aer::gfx
+} // namespace aer

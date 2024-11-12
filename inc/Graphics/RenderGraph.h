@@ -20,7 +20,7 @@
 
 #include "VulkanRenderer.h"
 
-namespace aer::gfx
+namespace aer
 {
     
 struct RecordTraversal;
@@ -32,4 +32,4 @@ class RenderGraph : public Group
     
 };
 
-} // namespace aer::gfx
+} // namespace aer

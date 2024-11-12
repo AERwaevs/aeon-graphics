@@ -1,6 +1,6 @@
 #include <Graphics/VulkanRenderer.h>
 
-namespace aer::gfx
+namespace aer
 {
 
 template<> ref_ptr<Renderer> Renderer::get_or_create< API::Vulkan >()

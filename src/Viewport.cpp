@@ -1,6 +1,6 @@
 #include <Graphics/Viewport.h>
 
-namespace aer::gfx
+namespace aer
 {
 
 //template<> ref_ptr<Viewport> Viewport::create< API::None >( Window* window )
@@ -29,4 +29,4 @@ void Viewport::Present()
     
 }
     
-} // namespace aer::gfx
+} // namespace aer

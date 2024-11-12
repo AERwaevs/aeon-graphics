@@ -4,7 +4,7 @@
 
 #include "Renderer.h"
 
-namespace aer::gfx
+namespace aer
 {
 
 class Window;
@@ -29,4 +29,4 @@ protected:
 };
 using Viewports = std::list<ref_ptr<Viewport>>;
 
-} // namespace aer::gfx
+} // namespace aer

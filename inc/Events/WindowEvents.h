@@ -13,11 +13,11 @@ namespace Graphics
 
 struct WindowEvent : public Event
 {
-    WindowEvent( gfx::Window* window ) : _window( window ) {};
+    WindowEvent( Window* window ) : _window( window ) {};
     
-    spy_ptr<gfx::Window>  window() const { return _window; }
+    spy_ptr<Window>  window() const { return _window; }
 private:
-    spy_ptr<gfx::Window>  _window;
+    spy_ptr<Window>  _window;
 };
 
 struct WindowCloseEvent : public WindowEvent

@@ -4,7 +4,7 @@
 
 #include "vk/vk.h"
 
-namespace aer::gfx
+namespace aer
 {
     class VulkanRenderer : public Renderer
     {

@@ -6,7 +6,7 @@
 #include "Renderer.h"
 #include "Viewport.h"
 
-namespace aer::gfx
+namespace aer
 {
     
 struct WindowProperties
@@ -51,6 +51,6 @@ using Windows = std::list<ref_ptr<Window>>;
 namespace aer
 {
 
-extern ref_ptr<gfx::Window> createWindow( const gfx::WindowProperties& = gfx::WindowProperties() );
+extern ref_ptr<Window> createWindow( const WindowProperties& = WindowProperties() );
 
 }

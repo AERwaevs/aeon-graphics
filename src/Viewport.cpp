@@ -3,11 +3,11 @@
 namespace aer::gfx
 {
 
-template<> ref_ptr<Viewport> Viewport::create< API::None >( Window* window )
-{
-    AE_WARN( "Creating viewport with no API" );
-    return{};
-}
+//template<> ref_ptr<Viewport> Viewport::create< API::None >( Window* window )
+//{
+//    AE_WARN( "Creating viewport with no API" );
+//    return{};
+//}
 
 bool Viewport::AdvanceFrame()
 {

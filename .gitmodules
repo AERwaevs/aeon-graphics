@@ -1,0 +1,3 @@
+[submodule "lib/vulkan"]
+	path = lib/vulkan
+	url = https://github.com/AERwaevs/vulkan.git

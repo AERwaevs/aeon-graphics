@@ -29,6 +29,7 @@ set( GRAPHICS_SOURCE
 
 # gfx module --------------------------------------------------------------------------------------
 add_library( graphics SHARED ${GRAPHICS_SOURCE} )
+add_subdirectory( "lib/vulkan" )
 target_include_directories( graphics PUBLIC
     $<BUILD_INTERFACE:${GRAPHICS_INC_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
@@ -36,11 +37,11 @@ target_include_directories( graphics PUBLIC
 target_link_libraries( graphics
     PUBLIC
         base
+        aer::vulkan
         $<$<BOOL:${WIN32}>:win32>
         #$<$<BOOL:${LINUX}>:linux>
         $<$<BOOL:${ANDROID}>:android>
         $<$<BOOL:${IOS}>:ios>
         $<$<AND:$<BOOL:${APPLE}>,$<NOT:$<BOOL:${IOS}>>>:macos>
-        $<$<TARGET_EXISTS:vulkan>:vulkan>
 )
 add_library( aer::graphics ALIAS graphics )

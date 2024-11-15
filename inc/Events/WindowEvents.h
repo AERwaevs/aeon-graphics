@@ -3,13 +3,10 @@
 #include <Base/Base.h>
 #include <Base/Event.h>
 
+#include <Graphics/Window.h>
+
 namespace aer
 {
-    
-namespace Graphics
-{
-    class Window;   // forward declare
-}
 
 struct WindowEvent : public Event
 {

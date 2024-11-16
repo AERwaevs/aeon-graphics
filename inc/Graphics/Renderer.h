@@ -7,7 +7,7 @@
 namespace aer
 {
 
-class Renderer : public inherit< Renderer, Object >
+class Renderer : public Object
 {
 public:
     template< API api = API::Default >

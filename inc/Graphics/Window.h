@@ -36,6 +36,7 @@ public:
     const   WindowProperties&   properties() const { return _properties; }
 
             void                Update(){};
+protected:
             Window( const WindowProperties& props ) : _properties( props ) {};
     virtual ~Window() = default;
 protected:
@@ -45,11 +46,6 @@ protected:
 
 };
 using Windows = std::list<ref_ptr<Window>>;
-
-}
-
-namespace aer
-{
 
 extern ref_ptr<Window> createWindow( const WindowProperties& = WindowProperties() );
 

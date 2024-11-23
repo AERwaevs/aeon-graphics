@@ -18,12 +18,21 @@
 
 namespace aer
 {
+template< typename T >
+inline auto read( const std::string& path )
+{
+    std::ifstream file( path, std::ios::ate | std::ios::binary );
+    AE_FATAL_IF( !file.is_open(), "Failed to open file: %s", path.c_str() );
 
-//template<>
-//ref_ptr<Viewport> Viewport::create< API::Vulkan >( Window* window )
-//{
-//    return VulkanViewport::create( window );
-//}
+    std::size_t         size( file.tellg() );
+    std::vector<char>   buffer( size );
+
+    file.seekg( 0 );
+    file.read( buffer.data(), size );
+    file.close();
+
+    return ref_ptr<T>( new T( buffer ) );
+}
 
 const inline auto GetQueueSettings( vk::PhysicalDevice* physical_device, vk::Surface* surface )
 {

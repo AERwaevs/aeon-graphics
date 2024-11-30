@@ -61,7 +61,7 @@ VulkanViewport::VulkanViewport( Window* window )
     (
         _physical_device, _surface, GetQueueSettings( _physical_device.get(), _surface.get() )
     )),
-    _context( create<vk::Context>( _device.get() )),
+    _context( create<vk::Context>( _device )),
     _swapchain( create<vk::Swapchain>
     (
         _physical_device, _device, _surface,
@@ -70,7 +70,7 @@ VulkanViewport::VulkanViewport( Window* window )
 {
     using namespace vk;
 
-    _context->renderPass = createRenderPass( _device.get(), _swapchain->format() );
+    _context->renderPass = createRenderPass( _device, _swapchain->format() );
     const auto maxSamples = [&]()
     {
         VkSampleCountFlagBits maxSamples( VK_SAMPLE_COUNT_1_BIT );

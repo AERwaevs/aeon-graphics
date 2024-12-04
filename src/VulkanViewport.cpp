@@ -104,9 +104,9 @@ VulkanViewport::VulkanViewport( Window* window )
         create<ShaderStage>( VK_SHADER_STAGE_FRAGMENT_BIT, frag_module, "main" )
     };
     
-    _pipelineLayout = create<PipelineLayout>( _context->device.get() );
+    _pipelineLayout = create<PipelineLayout>( _context->device );
     _pipelineLayout->Compile( *_context );
-    _graphicsPipeline = create<GraphicsPipeline>( _pipelineLayout.get(), stages, _context->states );
+    _graphicsPipeline = create<GraphicsPipeline>( _pipelineLayout, stages, _context->states );
     _graphicsPipeline->Compile( *_context );
 
     // TODO - handle depth
@@ -142,7 +142,7 @@ VulkanViewport::VulkanViewport( Window* window )
         std::tie( graphicsFamily, std::ignore ) = _physical_device->GetQueueFamilies( VK_QUEUE_GRAPHICS_BIT, _surface.get() );
         return graphicsFamily;
     }();
-    _commandPool    = create<CommandPool>( _device.get(), graphicsFamily, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT );
+    _commandPool    = create<CommandPool>( _device, graphicsFamily, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT );
 
     //TODO create command buffer
     _commandBuffer  = _commandPool->allocate();
@@ -185,9 +185,9 @@ VulkanViewport::VulkanViewport( Window* window )
     auto result = vkEndCommandBuffer( *_commandBuffer );
     AE_ERROR_IF( result != VK_SUCCESS, "Failed to record command buffer: %s", ResultMessage( result ) );
 
-    _imageAvailableSemaphore = create<Semaphore>( _device.get() );
-    _renderFinishedSemaphore = create<Semaphore>( _device.get() );
-    _inFlightFence           = create<Fence>( _device.get() );
+    _imageAvailableSemaphore = create<Semaphore>( _device );
+    _renderFinishedSemaphore = create<Semaphore>( _device );
+    _inFlightFence           = create<Fence>( _device );
 }
 
 VulkanViewport::~VulkanViewport()

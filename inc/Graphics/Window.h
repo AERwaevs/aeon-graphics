@@ -36,7 +36,6 @@ public:
     const   WindowProperties&   properties() const { return _properties; }
 
             void                Update(){};
-protected:
             Window( const WindowProperties& props ) : _properties( props ) {};
     virtual ~Window() = default;
 protected:

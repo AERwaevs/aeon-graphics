@@ -11,13 +11,10 @@ class Window;
 
 class Viewport : public Object
 {
-//public:
-//    template< API api = API::Default >
-//    static ref_ptr<Viewport> create( Window* window );
-protected:
+public:
     Viewport( Window* window ) : _window( window ), _renderer( Renderer::get_or_create() ) {};
     virtual ~Viewport() noexcept = default;
-public:
+
     virtual bool AdvanceFrame();
     virtual bool AcquireFrame();
     virtual void Update();

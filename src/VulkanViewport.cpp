@@ -22,7 +22,7 @@ template< typename T >
 inline auto read( const std::string& path )
 {
     std::ifstream file( path, std::ios::ate | std::ios::binary );
-    AE_FATAL_IF( !file.is_open(), "Failed to open file: %s", path.c_str() );
+    CHECK_F( !file.is_open(), "Failed to open file: %s", path.c_str() );
 
     std::size_t         size( file.tellg() );
     std::vector<char>   buffer( size );
@@ -183,7 +183,7 @@ VulkanViewport::VulkanViewport( Window* window )
     vkCmdEndRenderPass( *_commandBuffer );
     
     auto result = vkEndCommandBuffer( *_commandBuffer );
-    AE_ERROR_IF( result != VK_SUCCESS, "Failed to record command buffer: %s", ResultMessage( result ) );
+    CHECK_F( result == VK_SUCCESS, "Failed to record command buffer: %s", ResultMessage( result ) );
 
     _imageAvailableSemaphore = create<Semaphore>( _device );
     _renderFinishedSemaphore = create<Semaphore>( _device );
